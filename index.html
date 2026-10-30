@@ -262,6 +262,16 @@
     .principle h3 { margin: 55px 0 12px; font-family: var(--serif); font-size: 25px; font-weight: 500; }
     .principle p { max-width: 280px; margin-bottom: 0; color: var(--muted); font-size: 13px; }
 
+    /* 學習流程區將抽象的「認真」拆成可持續練習的三個步驟。 */
+    .study-section { padding: clamp(90px, 13vw, 170px) 0; }
+    .study-grid { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 40px; }
+    .study-card { min-height: 235px; padding: 22px 28px 0 0; border-top: 1px solid var(--line); }
+    .study-card + .study-card { padding-left: 28px; border-left: 1px solid var(--line); }
+    .study-step { color: var(--blue); font-family: var(--serif); font-size: 13px; }
+    .study-card h3 { margin: 42px 0 12px; font-family: var(--serif); font-size: 24px; font-weight: 500; }
+    .study-card p { max-width: 300px; margin: 0; color: var(--muted); font-size: 13px; }
+    .study-note { max-width: 700px; margin: 38px 0 0 auto; padding-left: 18px; border-left: 2px solid var(--accent); color: var(--muted); font-size: 12px; }
+
     /* 這段用連續的時間刻度，把「認真讀書」呈現成持續前進的日常。 */
     .journey { padding: clamp(76px, 11vw, 144px) 0; background: #e8e9df; }
     .journey-inner { display: grid; grid-template-columns: .7fr 1.3fr; gap: 50px; }
@@ -279,6 +289,17 @@
     .timeline-item time { padding-top: 3px; color: var(--blue); font-family: var(--serif); font-size: 14px; }
     .timeline-item h3 { margin-bottom: 7px; font-size: 16px; font-weight: 600; }
     .timeline-item p { max-width: 470px; margin: 0; color: #656960; font-size: 13px; }
+
+    /* 深色舞台段落呼應個人照片，也為整頁增加明確的明暗節奏。 */
+    .stage-moment { padding: clamp(86px, 12vw, 160px) 0; background: #2b2022; color: var(--paper); }
+    .stage-inner { display: grid; grid-template-columns: .8fr 1.2fr; align-items: start; gap: clamp(36px, 9vw, 130px); }
+    .stage-moment .eyebrow { color: #cdbfc0; }
+    .stage-moment .eyebrow::before { background: #c16b70; }
+    .stage-copy h2 { max-width: 670px; margin: 0 0 25px; font-family: var(--serif); font-size: clamp(38px, 5.2vw, 68px); font-weight: 500; line-height: 1.28; }
+    .stage-copy h2 em { color: #e19a9a; font-style: normal; }
+    .stage-copy > p { max-width: 570px; margin: 0; color: #d3c7c7; font-size: 14px; line-height: 2; }
+    .stage-signature { display: flex; align-items: center; gap: 12px; margin-top: 35px; color: #d3c7c7; font-size: 11px; }
+    .stage-signature::before { width: 32px; height: 1px; background: #c16b70; content: ""; }
 
     /* 收尾讓網站回到個人本身，CTA 以站內連結運作，不放虛構的聯絡資訊。 */
     .closing { padding: clamp(100px, 17vw, 220px) 0; text-align: center; }
@@ -338,6 +359,11 @@
       .principle-list { grid-template-columns: 1fr; }
       .principle, .principle + .principle { min-height: 0; padding: 22px 0; border-left: 0; }
       .principle h3 { margin-top: 26px; }
+      .study-grid { grid-template-columns: 1fr; }
+      .study-card, .study-card + .study-card { min-height: 0; padding: 22px 0; border-left: 0; }
+      .study-card h3 { margin-top: 20px; }
+      .study-note { margin-top: 18px; }
+      .stage-inner { grid-template-columns: 1fr; gap: 25px; }
       .section-heading { align-items: start; flex-direction: column; }
     }
     @media (max-width: 420px) {
@@ -366,7 +392,9 @@
       <div class="nav-links" id="nav-links">
         <a href="#about">關於我</a>
         <a href="#values">相信的事</a>
+        <a href="#study">學習方法</a>
         <a href="#journey">學習日常</a>
+        <a href="#stage">舞台時刻</a>
         <a href="#contact">保持聯絡</a>
       </div>
     </nav>
@@ -429,6 +457,34 @@
       </div>
     </section>
 
+    <!-- 三個學習步驟提供更具體的個人內容，也能讓讀者理解垂祐如何面對新知。 -->
+    <section class="study-section" id="study" aria-labelledby="study-title">
+      <div class="wrap">
+        <div class="section-heading reveal">
+          <div><p class="eyebrow">A PRACTICE, NOT A SHORTCUT</p><h2 id="study-title">把知識，讀成理解。</h2></div>
+          <p>不是追求一次記住，而是慢慢建立可以帶走的理解。</p>
+        </div>
+        <div class="study-grid">
+          <article class="study-card reveal">
+            <span class="study-step">STEP 01 · 理解</span>
+            <h3>先問「為什麼」</h3>
+            <p>從概念的來由開始，試著把新的知識放進更大的脈絡裡。</p>
+          </article>
+          <article class="study-card reveal">
+            <span class="study-step">STEP 02 · 回想</span>
+            <h3>闔上書，說一次</h3>
+            <p>用自己的話重新整理，找出還不清楚的地方，再回去補足。</p>
+          </article>
+          <article class="study-card reveal">
+            <span class="study-step">STEP 03 · 累積</span>
+            <h3>讓每天接得起來</h3>
+            <p>定期回看筆記，把零散的內容慢慢連成自己的知識地圖。</p>
+          </article>
+        </div>
+        <p class="study-note reveal">這不是快速抵達的捷徑，而是我希望持續練習的學習節奏。</p>
+      </div>
+    </section>
+
     <!-- 時間軸描述可持續更新的學習習慣，避免捏造學校、年級或經歷。 -->
     <section class="journey" id="journey" aria-labelledby="journey-title">
       <div class="wrap journey-inner">
@@ -450,6 +506,18 @@
             <time datetime="20:00">夜晚</time>
             <div><h3>回顧，也好好休息</h3><p>記下今天學會的事，留一點空白，準備迎接下一個早晨。</p></div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 以照片中的舞台作為故事線索，連結課業之外的勇氣與持續準備。 -->
+    <section class="stage-moment" id="stage" aria-labelledby="stage-title">
+      <div class="wrap stage-inner reveal">
+        <p class="eyebrow">BEYOND THE BOOKS</p>
+        <div class="stage-copy">
+          <h2 id="stage-title">準備好，<em>就勇敢上場。</em></h2>
+          <p>這張照片，記錄了我站上舞台的一刻。舞台和書桌看起來很不一樣，卻都需要一次次準備、練習，再相信自己已經走過的路。成為更好的自己，不只在讀懂一頁書時，也在願意踏出下一步的時候。</p>
+          <span class="stage-signature">認真準備，也認真生活</span>
         </div>
       </div>
     </section>
